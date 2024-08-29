@@ -4,28 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frugter</title>
+    <style>
+      img {
+        max-width: 300px;
+      }
+    </style>
   </head>
   <body>
-    <article id="bilkort">
-      <h1>brand</h1>
-      <h2>model</h2>
-      <p>motor</p>
-      <div>passagerer</div>
-    </article>
-    <ul></ul>
-    <script>
-      const bil = {
-        brand: "Peugeot",
-        model: "5008",
-        motor: "benzin",
-        passagerer: ["Jonas", "Martin", "Louise", "Peter", "Alan"],
-      };
+    <h1>Biler</h1>
+    <template>
+      <article id="bilkort">
+        <h1>brand</h1>
+        <h2>model</h2>
+        <h3>drivmiddel</h3>
+        <h4>lak</h4>
+        <div>udstyr</div>
+      </article>
+    </template>
 
-      const bilkort = document.querySelector("#bilkort");
-      bilkort.querySelector("h1").textContent = bil.brand;
-      bilkort.querySelector("h2").textContent = bil.model;
-      bilkort.querySelector("p").textContent = bil.motor;
-      bilkort.querySelector("div").textContent = bil.passagerer;
+    <section id="billiste"></section>
+
+    <script>
+      const biler = [
+        {
+          brand: "BMW",
+          model: "M3",
+          motor: "Diesel",
+          lak: "blank sort",
+          udstyr: ["AC", "Alufælge", "soltag"],
+          passagerer: ["Jonas", "Martin", "Louise", "Peter", "Alan"],
+        },
+        {
+          brand: "VW",
+          model: "14",
+          motor: "El",
+          lak: "hvid",
+          udstyr: ["AC", "Fartpilot"],
+          passagerer: ["Jonas", "Martin", "Louise", "Peter", "Alan"],
+        },
+        {
+          brand: "Volvo",
+          model: "Amazon",
+          motor: "Benzin",
+          lak: "Mat grå",
+          udstyr: ["Barnesæde"],
+          passagerer: ["Jonas", "Martin", "Louise", "Peter", "Alan"],
+        },
+      ];
+
+      const skabelon = document.querySelector("template").content;
+      const billiste = document.querySelector("#billiste");
+
+      biler.forEach(visBil);
+
+      function visBil(bil) {
+        console.log(bil);
+        const kopi = skabelon.cloneNode(true);
+        kopi.querySelector("h1").textContent = bil.brand;
+        kopi.querySelector("h2").textContent = bil.model;
+        kopi.querySelector("h3").textContent = bil.motor;
+        kopi.querySelector("h4").textContent = bil.lak;
+        kopi.querySelector("div").textContent = bil.udstyr;
+        billiste.appendChild(kopi);
+      }
     </script>
   </body>
 </html>
