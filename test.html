@@ -3,7 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Test</title>
+    <style>
+      article {
+        border: 1px solid;
+        padding: 1rem;
+      }
+      #listen {
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        gap: 5rem;
+      }
+    </style>
   </head>
   <body>
     <h1>Liste</h1>
@@ -29,7 +40,7 @@
           console.log(piece);
           const kopi = skabelon.cloneNode(true);
           kopi.querySelector("h2").textContent = piece.productdisplayname;
-          kopi.querySelector("p").textContent = piece.price;
+          kopi.querySelector("p").textContent = piece.price + ",- kr.";
           sektion.appendChild(kopi);
         });
       }
