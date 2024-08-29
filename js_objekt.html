@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frugter</title>
+  </head>
+  <body>
+    <article id="bilkort">
+      <h1>brand</h1>
+      <h2>model</h2>
+      <p>motor</p>
+      <div>passagerer</div>
+    </article>
+    <ul></ul>
+    <script>
+      const bil = {
+        brand: "Peugeot",
+        model: "5008",
+        motor: "benzin",
+        passagerer: ["Jonas", "Martin", "Louise", "Peter", "Alan"],
+      };
+
+      const bilkort = document.querySelector("#bilkort");
+      bilkort.querySelector("h1").textContent = bil.brand;
+      bilkort.querySelector("h2").textContent = bil.model;
+      bilkort.querySelector("p").textContent = bil.motor;
+      bilkort.querySelector("div").textContent = bil.passagerer;
+    </script>
+  </body>
+</html>
